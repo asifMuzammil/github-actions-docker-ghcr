@@ -35,7 +35,8 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Debug Secrets
-      run: echo "DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}"
+      run: |
+          echo "DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}"
       
     # Build Docker Image
     - name: Build Docker Image
