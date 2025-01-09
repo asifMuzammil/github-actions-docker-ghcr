@@ -37,7 +37,11 @@ jobs:
     - name: Debug Secrets
       run: |
        echo "DOCKER_HUB_USERNAME: ${{ vars.DOCKER_HUB_USERNAME }}"
-      
+    
+    - name: Convert Repository Owner to Lowercase
+      id: vars
+      run: |
+        echo "REPOSITORY_OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV   
     # Build Docker Image
     - name: Build Docker Image
       run: |
