@@ -41,7 +41,11 @@ jobs:
         push: false
         tags: |
              ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
+<<<<<<< HEAD
              ghcr.io/asifmuzammil/dummy-python-app:latest  
+=======
+             ghcr.io/${{ github.repository_owner }}/dummy-python-app:latest  
+>>>>>>> 9e6482891444d4b4d0b53d756e6b68d55136ab43
     
     # Test the Docker Image
     - name: Test Docker Image
