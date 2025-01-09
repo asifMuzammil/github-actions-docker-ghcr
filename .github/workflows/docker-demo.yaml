@@ -34,20 +34,15 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Debug Secrets
-      run: |
-       echo "DOCKER_HUB_USERNAME: ${{ vars.DOCKER_HUB_USERNAME }}"
+    - name: Build and Push Image to Both Registries
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: false
+        tags: |
+             ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
+             ghcr.io/${{ github.repository_owner }}/dummy-python-app:latest  
     
-    - name: Convert Repository Owner to Lowercase
-      id: vars
-      run: |
-        echo "REPOSITORY_OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV   
-    # Build Docker Image
-    - name: Build Docker Image
-      run: |
-        docker build -t ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest .
-        docker tag ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest ghcr.io/asifmuzammil/dummy-python-app:latest
-
     # Test the Docker Image
     - name: Test Docker Image
       run: |
@@ -62,12 +57,11 @@ jobs:
         docker stop dummy-app-test
         docker rm dummy-app-test
 
-    # Push to Docker Hub
-    - name: Push Docker Image to Docker Hub
-      run: |
-        docker push ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
-
-    # Push to GitHub Container Registry
-    - name: Push Docker Image to GHCR
-      run: |
-        docker push ghcr.io://asifMuzammil/dummy-python-app:latest
+    - name: Build and Push Image to Both Registries
+      uses: docker/build-push-action@v4
+      with:
+         context: .
+         push: true
+         tags: |
+           ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
+           ghcr.io/${{ github.repository_owner }}/dummy-python-app:latest
