@@ -41,8 +41,7 @@ jobs:
         push: false
         tags: |
              ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
-             ghcr.io/asifmuzammil/dummy-python-app:latest 
-    
+             
     # Test the Docker Image
     - name: Test Docker Image
       run: |
@@ -64,4 +63,3 @@ jobs:
          push: true
          tags: |
            ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
-           ghcr.io/${{ github.repository_owner }}/dummy-python-app:latest
