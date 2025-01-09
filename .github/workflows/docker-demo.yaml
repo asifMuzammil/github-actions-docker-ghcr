@@ -66,4 +66,4 @@ jobs:
     # Push to GitHub Container Registry
     - name: Push Docker Image to GHCR
       run: |
-        docker push ghcr.io/${{ github.repository_owner }}/dummy-python-app:latest
+        docker push ghcr.io://asifMuzammil/dummy-python-app:latest
