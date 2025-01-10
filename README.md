@@ -173,17 +173,17 @@ Once the workflow completes, pull the image from Docker Hub or GHCR:
 
 - Docker Hub:
   ```bash
-  docker pull your-dockerhub-username/dummy-python-app:latest
+  docker pull asifmuzammil/dummy-python-app:latest
   ```
 
 - GHCR:
   ```bash
-  docker pull ghcr.io/your-username/dummy-python-app:latest
+  docker pull ghcr.io/asifmuzammil/dummy-python-app:latest
   ```
 
 Run the container and test the endpoints:
 ```bash
-docker run -d -p 5000:5000 your-dockerhub-username/dummy-python-app:latest
+docker run -d -p 5000:5000 asifmuzammil/dummy-python-app:latest
 curl http://localhost:5000/
 curl http://localhost:5000/workflow
 ```
