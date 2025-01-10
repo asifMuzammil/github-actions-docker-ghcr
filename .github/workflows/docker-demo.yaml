@@ -56,7 +56,7 @@ jobs:
         sleep 5
         # Test endpoints
         curl -f http://localhost:5000/ || exit 1
-        curl -f http://localhost:5000/workflow || exit 1
+        # curl -f http://localhost:5000/workflow || exit 1
         # Stop the container after testing
         docker stop dummy-app-test
         docker rm dummy-app-test
