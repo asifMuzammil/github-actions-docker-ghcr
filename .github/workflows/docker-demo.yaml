@@ -41,10 +41,11 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        push: false
+        push: true
+        load: true
         tags: |
              ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
-             docker build -t ghcr.io/${{ env.REPO_OWNER }}/dummy-python-app:latest
+             ghcr.io/${{ env.REPO_OWNER }}/dummy-python-app:latest
              
     # Test the Docker Image
     - name: Test Docker Image
@@ -59,12 +60,3 @@ jobs:
         # Stop the container after testing
         docker stop dummy-app-test
         docker rm dummy-app-test
-
-    - name: Build and Push Image to Both Registries
-      uses: docker/build-push-action@v4
-      with:
-         context: .
-         push: true
-         tags: |
-           ${{ vars.DOCKER_HUB_USERNAME }}/dummy-python-app:latest
-           ghcr.io/${{ env.REPO_OWNER }}/dummy-python-app:latest
