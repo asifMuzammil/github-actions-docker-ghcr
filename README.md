@@ -1,6 +1,6 @@
-# Using GitHub Actions to Build and Push Docker Images with GHCR and Docker Hub
+# Building and Pushing Docker Images with GHCR and Docker Hub Using GitHub Actions
 
-This article provides a step-by-step guide on how to build and push Docker images using GitHub Actions to both Docker Hub and GitHub Container Registry (GHCR). It also demonstrates how to enhance your Python application with a workflow information endpoint that displays project details when the container is run.
+This post offers a detailed tutorial on building and deploying Docker images to the GitHub Container Registry (GHCR) and Docker Hub using GitHub Actions. Additionally, it shows how to add a workflow information endpoint to your Python application, which shows project details when the container is executed.
 
 ---
 
@@ -62,8 +62,8 @@ def workflow():
         "project": "GitHub Actions Docker & GHCR  Workflow",
         "author": "Asif Muzammil",
         "description": "This project demonstrates building and pushing Docker images using GitHub Actions.",
-        "repository": "https://github.com/your-repo-name",
-        "docker_image": "ghcr.io/your-username/dummy-python-app"
+        "repository": "https://github.com/asifMuzammil/github-actions-docker-ghcr",
+        "docker_image": "https://github.com/asifMuzammil/github-actions-docker-ghcr/pkgs/container/dummy-python-app"
     })
 
 if __name__ == "__main__":
@@ -192,15 +192,18 @@ curl http://localhost:5000/workflow
 
 ## Conclusion
 
-This project demonstrates the seamless integration of GitHub Actions with Docker Hub and GHCR for managing and deploying container images. By following this guide, you can automate your container workflows and enhance collaboration with your team.
+This project demonstrates the seamless integration of GitHub Actions with Docker Hub and GHCR for managing and deploying container images. By following this guide, you can automate your container workflows and enhance your skills.
+If you like or find this guide helpful, please follow me! 🚀
 
-```
-### Feel free to reach out!
+---
+## Feel free to reach out!
 
-## Here are some ways to connect with me:
+### Here are some ways to connect with me:
 
 ###  Social Media:
 
 - [LinkedIn](www.linkedin.com/in/asif-muzammil-hussain-b6742441)
 - [GitHub](https://github.com/asifMuzammil/github-actions-docker-ghcr)
 - [Personal Email](m.asif.muzammil@gmail.com)
+- [Medium]  (https://medium.com/@m.asif.muzammil)
+---
